@@ -1,0 +1,15 @@
+{
+    "embed_dim": 512,
+    "vision_block": "bottleneck",
+    "input_channels": 5,
+    "vision_layers": [
+        3,
+        4,
+        6,
+        3
+    ],
+    "vision_width": 64,
+    "input_size": 1024,
+    "molecule_layers": 4,
+    "hidden_dim": 1024
+}
