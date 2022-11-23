@@ -1,4 +1,4 @@
-name: cloob
+name: cloome
 channels:
   - pytorch
   - conda-forge
@@ -16,7 +16,10 @@ dependencies:
   - c-ares=1.18.1=h7f8727e_0
   - ca-certificates=2021.10.26=h06a4308_2
   - cachetools=4.2.2=pyhd3eb1b0_0
+  - certifi=2021.10.8=py39hf3d152e_1
   - cffi=1.15.0=py39hd667e15_1
+  - charset-normalizer=2.0.11=pyhd8ed1ab_0
+  - click=8.0.3=py39hf3d152e_1
   - cryptography=3.4.8=py39hd23ed53_0
   - cudatoolkit=11.3.1=h2bc3f7f_2
   - cycler=0.11.0=pyhd3eb1b0_0
@@ -93,6 +96,7 @@ dependencies:
   - pycparser=2.21=pyhd3eb1b0_0
   - pyjwt=2.1.0=py39h06a4308_0
   - pyopenssl=21.0.0=pyhd3eb1b0_1
+  - pyparsing=3.0.7=pyhd8ed1ab_0
   - pyqt=5.9.2=py39h2531618_6
   - pysocks=1.7.1=py39h06a4308_0
   - python=3.9.7=h12debd9_1
@@ -119,7 +123,6 @@ dependencies:
   - torchvision=0.11.3=py39_cu113
   - tornado=6.1=py39h27cfd23_0
   - tqdm=4.62.3=pyhd3eb1b0_1
-  - typing_extensions=4.0.1=pyha770c72_0
   - tzdata=2021e=he74cb21_0
   - urllib3=1.26.8=pyhd3eb1b0_0
   - wcwidth=0.2.5=pyhd3eb1b0_0
@@ -139,20 +142,23 @@ dependencies:
     - black==22.1.0
     - bleach==4.1.0
     - braceexpand==0.1.7
-    - certifi==2021.10.8
-    - charset-normalizer==2.0.11
-    - click==8.0.3
     - debugpy==1.5.1
     - decorator==5.1.1
     - defusedxml==0.7.1
     - docker-pycreds==0.4.0
     - entrypoints==0.3
     - executing==0.8.2
+    - filelock==3.8.0
     - gitdb==4.0.9
     - gitpython==3.1.26
+    - hopfield-layers==1.0.2
+    - htmlmin==0.1.12
+    - huggingface-hub==0.11.0
+    - imagehash==4.3.1
     - ipykernel==6.8.0
     - ipython==8.0.1
     - ipython-genutils==0.2.0
+    - ipywidgets==8.0.2
     - jedi==0.18.1
     - jinja2==3.0.3
     - joblib==1.1.0
@@ -160,21 +166,29 @@ dependencies:
     - jupyter-client==7.1.2
     - jupyter-core==4.9.1
     - jupyterlab-pygments==0.1.2
+    - jupyterlab-widgets==3.0.3
     - markupsafe==2.0.1
     - matplotlib-inline==0.1.3
+    - missingno==0.5.1
     - mistune==0.8.4
+    - multimethod==1.9
     - mypy-extensions==0.4.3
     - nbclient==0.5.10
     - nbconvert==6.4.1
     - nbformat==5.1.3
     - nest-asyncio==1.5.4
+    - networkx==2.8.8
     - notebook==6.4.8
+    - numexpr==2.8.1
     - packaging==21.3
+    - pandas-profiling==3.4.0
     - pandocfilters==1.5.0
     - parso==0.8.3
     - pathspec==0.9.0
     - pathtools==0.1.2
+    - patsy==0.5.3
     - pexpect==4.8.0
+    - phik==0.12.2
     - pickleshare==0.7.5
     - platformdirs==2.4.1
     - prometheus-client==0.13.1
@@ -184,27 +198,40 @@ dependencies:
     - psutil==5.9.0
     - ptyprocess==0.7.0
     - pure-eval==0.2.2
+    - pydantic==1.10.2
     - pygments==2.11.2
-    - pyparsing==3.0.7
     - pyrsistent==0.18.1
+    - pywavelets==1.4.1
     - pyyaml==6.0
     - pyzmq==22.3.0
+    - rdkit-pypi==2022.3.4
     - scikit-learn==1.0.2
     - scipy==1.7.3
+    - seaborn==0.12.1
     - send2trash==1.8.0
     - sentry-sdk==1.5.4
     - setuptools==59.5.0
     - shortuuid==1.0.8
     - smmap==5.0.0
     - stack-data==0.1.4
+    - statsmodels==0.13.5
+    - tables==3.7.0
+    - tangled-up-in-unicode==0.2.0
     - termcolor==1.1.0
     - terminado==0.13.1
     - testpath==0.5.0
     - threadpoolctl==3.1.0
+    - timm==0.5.4
     - tomli==2.0.0
     - traitlets==5.1.1
+    - typing-extensions==4.4.0
+    - visions==0.7.5
     - wandb==0.12.10
+    - webdataset==0.1.103
     - webencodings==0.5.1
+    - widgetsnbextension==4.0.3
     - yaspin==2.1.0
     - git+https://github.com/ml-jku/hopfield-layers
     - git+https://github.com/tmbdev/webdataset.git
+
+prefix: /system/apps/userenv/sanchez/cloob
