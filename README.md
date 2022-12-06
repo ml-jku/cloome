@@ -4,8 +4,7 @@
 [![Pytorch](https://img.shields.io/badge/PyTorch-1.9-red.svg)](https://pytorch.org/get-started/previous-versions/)
 ![Licence](https://img.shields.io/github/license/ml-jku/cloome)
 
-
-This repository will contain the necessary code for reproducing the results shown in the paper. It is an application of [CLOOB](https://arxiv.org/pdf/2110.11316.pdf) and [CLIP](https://arxiv.org/pdf/2103.00020.pdf) for drug discovery, using fluorescence microscopy images and molecular structures. It is based on the implementation of [CLOOB](https://github.com/ml-jku/cloob).
+This repository contains the code for training and testing CLOOME, which is developed on the code basis of [CLOOB](https://github.com/ml-jku/cloob).
 
 ![plot](cloome_figure.png)
 
