@@ -4,7 +4,7 @@
 [![Pytorch](https://img.shields.io/badge/PyTorch-1.9-red.svg)](https://pytorch.org/get-started/previous-versions/)
 ![Licence](https://img.shields.io/github/license/ml-jku/cloome)
 
-This repository contains the code for training and testing CLOOME, which is developed on the code basis of [CLOOB](https://github.com/ml-jku/cloob).
+This repository contains the code for training and testing CLOOME, which is developed on the code basis of [CLOOB](https://github.com/ml-jku/cloob). Weights for the trained CLOOME can be downloaded here: https://huggingface.co/anasanchezf/cloome/tree/main
 
 ![plot](cloome_figure.png)
 
