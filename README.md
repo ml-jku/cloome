@@ -2,9 +2,10 @@
 
 [![Python 3.9](https://img.shields.io/badge/Python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
 [![Pytorch](https://img.shields.io/badge/PyTorch-1.9-red.svg)](https://pytorch.org/get-started/previous-versions/)
-![Licence](https://img.shields.io/github/license/ml-jku/cloome)
+
 
 This repository contains the code for training and testing CLOOME, which is developed on the code basis of [CLOOB](https://github.com/ml-jku/cloob). Weights for the trained CLOOME can be downloaded here: https://huggingface.co/anasanchezf/cloome/tree/main
+The data used for training is the subset of treated cells from the Cell Painting dataset (http://gigadb.org/dataset/100351, see download instructions here https://github.com/gigascience/paper-bray2017). Pre-processed images from this dataset can be found at https://ml.jku.at/software/cellpainting/dataset/. 
 
 ![plot](cloome_figure.png)
 
