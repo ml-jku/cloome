@@ -16,20 +16,13 @@ def morgan_from_smiles(smiles, radius=3, nbits=1024, chiral=True):
 
 
 if __name__ == '__main__':
-    # indir = "/publicdata/cellpainting/"
-    # index = "labels_chembl24_1/with_t75/cellpainting-index.csv"
-    
-    indir = "/publicdata/cellpainting/"
-    index = "labels_chembl24_1/with_t75/cellpainting-index.csv"
+    indir = "<path-to-your-folder>"
+    index = "<path-to-your-folder>/cellpainting-index.csv"
     index = os.path.join(indir, index)
 
     outdir = "/publicwork/sanchez/data/"
     outfile_hdf = "morgan_chiral_fps.hdf5"
-    outfile_pkl = "morgan_chiral_fps_pkl.gzip"
-    outfile_prq = "morgan_chiral_fps_prq.gzip"
     outfile_hdf = os.path.join(outdir, outfile_hdf)
-    outfile_pkl = os.path.join(outdir, outfile_pkl)
-    outfile_prq = os.path.join(outdir, outfile_prq)
 
     n_cpus = 60
 
@@ -46,5 +39,4 @@ if __name__ == '__main__':
 
     df = pd.DataFrame(fps, index=ids, columns=columns)
     df.to_hdf(outfile_hdf, key="df", mode="w")
-    df.to_pickle(outfile_pkl, compression='gzip')
-    df.to_parquet(outfile_prq, compression='gzip')
+
