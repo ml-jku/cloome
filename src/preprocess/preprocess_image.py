@@ -163,10 +163,6 @@ def get_mean_std(loader, outfile):
     for batch in tqdm(loader):
         images = batch
         images = images["input"]
-        # t = images.ToTensor()
-        # print(t.shape)
-        #print(images.shape)
-        #print(f'{i+1}/{len(loader)}', ' '*100, end='\r')
         channels_sum += torch.mean(images, dim=[0, 2, 3])
         channels_sqrd_sum += torch.mean(images ** 2, dim=[0, 2, 3])
         num_batches += 1
@@ -190,12 +186,6 @@ def get_dataloader(index_file, input_filename_imgs, batch_size):
         transforms = ToTensor(),
         )
     num_samples = len(dataset)
-
-    # idcs = np.arange(len(dataset))
-    # n_samples = 1000
-    # np.random.shuffle(idcs)  # shuffles inplace
-    # new_idcs = idcs[:n_samples]
-    # return torch.utils.data.Subset(dataset, new_idcs)
 
     dataloader = DataLoader(
         dataset,
@@ -228,29 +218,19 @@ def get_data(args, preprocess_fns):
 
 
 if __name__ == '__main__':
-    indir = "/publicdata/cellpainting/tiffs"
-    outdir = "/publicdata/cellpainting_full/npzs/chembl24"
+    indir = "/<path-to-your-folder>/cellpainting/tiffs"
+    outdir = "/<path-to-your-folder>/cellpainting_full/npzs/"
     n_cpus = 60
 
-    index_file = "/publicwork/sanchez/data/cellpainting-split-train-all-mols.csv"
+    index_file = "/<path-to-your-folder>/cellpainting-index.csv"
     input_imgs = "/publicdata/cellpainting/npzs/chembl24"
-    input_mols = "/publicwork/sanchez/data/morgan_fps_1024.hdf5"
+    input_mols = "/<path-to-your-folder>/morgan_fps_1024.hdf5"
     batchsize = 32
-    stats_file = "/publicwork/sanchez/data/cellpainting_stats_all_mols.txt"
 
-    dataloader = get_dataloader(index_file, input_imgs, batchsize)
-    mean, std = get_mean_std(dataloader, stats_file)
 
-    #sample_groups = group_samples(indir)
-    # l = sample_list[0]
-    # print(l)
-    #l = ['24277-Mito/cdp2bioactives_a01_s1_w59ba5f4bd-0743-4105-a715-a6ac7f08e40e.tif', '24277-ERSyto/cdp2bioactives_a01_s1_w258f6ca69-31e9-4a86-8e44-8c5ff1e0daa1.tif', '24277-ERSytoBleed/cdp2bioactives_a01_s1_w36b4cae35-37c5-48e7-841e-fb47793582c9.tif', '24277-Ph_golgi/cdp2bioactives_a01_s1_w4f0fa59df-2025-4b28-b6f1-a41391e7d227.tif', '24277-Hoechst/cdp2bioactives_a01_s1_w127df6541-a9a1-46dc-bcdb-b64b187d422b.tif']
-    # tup = process_sample(l, indir, outdir)
-    # print(tup)
+    sample_groups = group_samples(indir)
+    result = parallelize(process_sample, sample_groups, n_cpus, indir=indir, outdir=outdir)
+    
+#     dataloader = get_dataloader(index_file, input_imgs, batchsize)
+#     mean, std = get_mean_std(dataloader, stats_file)
 
-    #result = parallelize(process_sample, sample_groups, n_cpus, indir=indir, outdir=outdir)
-
-    #
-    # plate_pattern = re.compile(".*(\d{5})\-(\w*).*\/.*\_(\w\d{2})\_\w(\d).*")
-    # s = '24277-Mito/cdp2bioactives_a01_s1_w59ba5f4bd-0743-4105-a715-a6ac7f08e40e.tif'
-    # m = plate_pattern.match(s)
