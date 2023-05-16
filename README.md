@@ -8,7 +8,7 @@ This repository contains the code for training and testing CLOOME, which is deve
 
 The data used for training is the subset of treated cells from the Cell Painting dataset (http://gigadb.org/dataset/100351; see download instructions here https://github.com/gigascience/paper-bray2017). Pre-processed images from this dataset can be found at https://ml.jku.at/software/cellpainting/dataset/. 
 
-![plot](cloome_figure.png)
+![plot](cloome_fig.png)
 
 ## Abstract
 Contrastive learning for self-supervised representation learning has brought a strong improvement to many application areas, such as computer vision and natural language processing. With the availability of large collections of unlabeled data in vision and language, contrastive learning of language and image representations has shown impressive results. The contrastive learning methods CLIP and CLOOB have demonstrated that the learned representations are highly transferable to a large set of diverse tasks when trained on multi-modal data from two different domains. In life sciences, similar large, multi-modal datasets comprising both cell-based microscopy images and chemical structures of molecules are available.
