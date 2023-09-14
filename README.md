@@ -1,7 +1,8 @@
-# Contrastive learning of image- and structure based representations in drug discovery
+# Contrastive learning of image- and structure-based representations in drug discovery
 
 [![Python 3.9](https://img.shields.io/badge/Python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
 [![Pytorch](https://img.shields.io/badge/PyTorch-1.9-red.svg)](https://pytorch.org/get-started/previous-versions/)
+[![DOI](https://zenodo.org/badge/506966028.svg)](https://zenodo.org/badge/latestdoi/506966028)
 
 
 This repository contains the code for training and testing CLOOME, which is developed on the code basis of [CLOOB](https://github.com/ml-jku/cloob). Weights for the trained CLOOME can be downloaded here: https://huggingface.co/anasanchezf/cloome/tree/main.
