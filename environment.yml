@@ -53,7 +53,7 @@ dependencies:
   - libcblas=3.9.0=13_linux64_mkl
   - libdeflate=1.8=h7f98852_0
   - libffi=3.3=he6710b0_2
-  - libgcc-ng=11.2.0=h1d223b6_12
+  #- libgcc-ng=11.2.0=h1d223b6_12
   - libgfortran-ng=11.2.0=h69a702a_12
   - libgfortran5=11.2.0=h5c6108e_12
   - libiconv=1.16=h516909a_0
