@@ -59,9 +59,6 @@ class CellPainting(Dataset):
 
             self.molecules = True
             molecule_df = pd.read_hdf(molecule_file, key="df")
-            #molecule_objs = {index: row.values for index, row in molecule_df.iterrows()}
-
-            #keys = list(set(sample_keys) & set(list(molecule_df.index.values)))
             mol_keys = list(molecule_df.index.values)
 
         if (self.images and self.molecules) or self.molecules:
@@ -190,10 +187,8 @@ class CellPainting(Dataset):
 
                 index = int(np.where(self.sample_index["SAMPLE_KEY"]==key)[0])
 
-                #cpd = str(self.sample_index["CPD_NAME"])
-
             else:
-                #print("ERROR: Missing sample '{}'".format(key))
+                print("ERROR: Missing sample '{}'".format(key))
                 return dict(input=np.nan, ID=key)
 
         if self.transforms:
@@ -217,16 +212,9 @@ class CellPainting(Dataset):
     def load_view(self, filepath):
         """Load all channels for one sample"""
         npz = np.load(filepath, allow_pickle=True)
-        if "sample" in npz:
-            image = npz["sample"].astype(np.float32)
-            #image_reshaped = np.transpose(image, (2, 0, 1))
-            # for c in range(image.shape[-1]):
-                # image[:, :, c] = (image[:, :, c] - image[:, :, c].mean()) / image[:, :, c].std()
-                # image[:, :, c] = ((image[:, :, c] - image[:, :, c].mean()) / image[:, :, c].std() * 255).astype(np.uint8)
-            # image = (image - image.mean()) / image.std()
-            return image
+        image = npz["sample"].astype(np.float32)
+        return image
 
-        return None
 
     def load_view_group(self, groupkey):
         result = np.empty((1040, 2088 - 12, 5), dtype=np.uint8)

@@ -52,15 +52,6 @@ def get_loss(model, images, texts, loss_fct_img, loss_fct_txt, hopfield_layer, a
         all_image_features = image_features
         all_text_features = text_features
 
-    # print("all_image_features")
-    # print(all_image_features)
-    # print(all_image_features.shape)
-    # print("all_text_features")
-    # print(all_text_features)
-    # print(all_text_features.shape)
-    # print("Rows equal?")
-    # print((all_text_features[0]==all_text_features).all())
-
     if args.method == "cloob":
         loss = cloob(
             all_image_features, all_text_features, inv_tau, hopfield_layer)
@@ -78,9 +69,8 @@ def train(model, data, epoch, optimizer, scaler, scheduler, args, tb_writer=None
 
 
     model.train()
-    #print("Before DataLoader")
     dataloader, sampler = data['train'].dataloader, data['train'].sampler
-    #print("Data loaded")
+
 
     loss_fct_img = nn.CrossEntropyLoss()
     loss_fct_txt = nn.CrossEntropyLoss()
@@ -121,28 +111,13 @@ def train(model, data, epoch, optimizer, scaler, scheduler, args, tb_writer=None
         optimizer.zero_grad()
 
         imgs, texts = batch
-        # print("compound")
-        #print(images["cpd"])
+
+
         if args.gpu is not None:
             images = imgs["input"].cuda(args.gpu, non_blocking=True)
             texts = texts["input"].cuda(args.gpu, non_blocking=True)
-            #ids = imgs["row_id"].cuda(args.gpu, non_blocking=True)
-
-        # print("********ids********")
-        # print(ids)
-
-        # print("-------mols-------")
-        # torch.set_printoptions(profile="full")
-        # print(texts)
-        # print("Rows equal?")
-        # print((texts[0]==texts).all())
-        # print(texts.shape)
-        #torch.set_printoptions(profile="default")
-
-
 
         data_time = time.time() - end
-    #    print(f"data_time{data_time}")
         m = model.module if args.distributed or args.dp else model
 
         # with automatic mixed precision.

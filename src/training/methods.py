@@ -12,64 +12,27 @@ def infoLOOB_loss(x, y, i, inv_tau):
     arg_lse = k * torch.logical_not(i) + i * large_neg
     negatives = torch.mean(torch.logsumexp(arg_lse, dim=1))
 
-    # print("Dot product")
-    # print(k)
-    #
-    # print("Positives")
-    # p = torch.sum(k * i, dim=1)
-    # print(p)
-    # print(p.shape)
-    #
-    # print("Negatives")
-    # n = torch.logsumexp(arg_lse, dim=1)
-    # print(n)
-    # print(n.shape)
-
     return tau * (positives + negatives)
 
 
 def cloob(image_features, text_features, inv_tau, hopfield_layer):
     p_xx, p_yy, p_xy, p_yx = hopfield_retrieval(image_features, text_features, hopfield_layer)
-    # print("p_xx")
-    # print(p_xx)
-    # print(p_xx.shape)
-    # print("p_xy")
-    # print(p_xy)
-    # print(p_xy.shape)
-    # print("p_yy")
-    # print(p_yy)
-    # print(p_yy.shape)
-    # print("p_yx")
-    # print(p_yx)
-    # print(p_yx.shape)
-    # print("pyy == pyx")
-    # print(torch.all(p_yy == p_yx, dim = 1))
     identity = torch.eye(p_xx.shape[0]) > 0.5
     i = identity.to(p_xx.device)
-    # print("****loss_img******")
     loss_img = infoLOOB_loss(p_xx, p_xy, i, inv_tau=inv_tau)
-    # print(loss_img)
-    # print("****loss_txt******")
     loss_txt = infoLOOB_loss(p_yy, p_yx, i, inv_tau=inv_tau)
-    # print(loss_txt)
     return loss_img + loss_txt
 
 
 def clip(image_features, text_features, inv_tau, loss_fct_img, loss_fct_txt, args):
     logits_per_image = inv_tau * image_features @ text_features.t()
     logits_per_text = logits_per_image.t()
-    # print("logits_per_image")
-    # print(logits_per_image)
     ground_truth = torch.arange(len(logits_per_image)).long()
     if args.gpu is not None:
         ground_truth = ground_truth.cuda(args.gpu, non_blocking=True)
     loss_img = loss_fct_img(logits_per_image, ground_truth) / 2
     loss_txt = loss_fct_txt(logits_per_text, ground_truth) / 2
 
-    # print("loss_img")
-    # print(loss_img)
-    # print("loss_txt")
-    # print(loss_txt)
     return loss_img + loss_txt
 
 
