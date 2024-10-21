@@ -1,4 +1,4 @@
-name: cloome
+name: cloob
 channels:
   - pytorch
   - conda-forge

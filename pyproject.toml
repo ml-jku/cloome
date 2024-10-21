@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cloome"
+version = "0.1.1"
+description = "A package for the paper: 'CLOOME: contrastive learning unlocks bioimaging databases for queries with chemical structures'"
+authors = [
+    {name = "Ana Sanchez Fernandez", email = "sanchez@ml.jku.at"},
+    {name = "Elisabeth Rumetshofer", email = "rumetshofer@ml.jku.at"}
+    ]
+readme = "README.md"
+requires-python = ">=3.9.7"
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "torch",
+    "torechvision",
+    "numpy",
+    "Pillow"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/ml-jku/cloome"
+"Bug Tracker" = "https://github.com/ml-jku/cloome"
+
+[tool.setuptools.packages.find]
+where = ["src/"]
+include = ["cloome"]
+
+
+[tool.setuptools]
+zip-safe = false

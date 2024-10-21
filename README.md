@@ -19,5 +19,33 @@ However, contrastive learning has not yet been used for this type of multi-modal
 
 On the benchmark dataset ”Cell Painting”, we demonstrate that the embeddings can be used to form a retrieval system for bioimaging and chemical databases. We also show that CLOOME learns transferable representations by performing linear probing for activity prediction tasks. Furthermore, the image embeddings can identify new cell phenotypes, as we show in a zero-shot classification task. 
 
-A pre-print is available [here](https://openreview.net/forum?id=OdXKRtg1OG).
+The paper can be found here: [here](https://www.nature.com/articles/s41467-023-42328-w).
 
+
+## Geting started
+You can now easily encode microscopy images with CLOOME pretrained models following these steps.
+
+```bash
+# Clone repository and swtich into the directory to work with example files and config
+git clone https://github.com/ml-jku/cloome
+cd cloome
+
+# Install 
+pip install git+https://github.com/ml-jku/cloome
+```
+
+```python
+import os
+from cloome.model import CLOOME
+
+ckpt = "example/cloome-bioactivity.pt"
+config = "src/training/model_configs/RN50.json"
+images = [os.path.join("example", "images", f"{channel}.tif") for channel in ["Mito", "ERSyto", "ERSytoBleed", "Ph_golgi", "Hoechst"]]
+
+
+encoder = CLOOME(ckpt, config)
+img_embeddings = encoder.encode_images(images)
+```
+
+## Funding
+This work has received funding from the European Union’s Horizon 2020 research and innovation programme under the Marie Skłodowska-Curie Actions, grant agreement “Advanced machine learning for Innovative Drug Discovery (AIDD)” No 956832”
