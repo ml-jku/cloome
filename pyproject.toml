@@ -20,7 +20,7 @@ classifiers = [
 ]
 dependencies = [
     "torch",
-    "torechvision",
+    "torchvision",
     "numpy",
     "Pillow",
     "huggingface_hub"
