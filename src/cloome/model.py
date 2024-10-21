@@ -36,7 +36,7 @@ class CLOOME:
 
 
 
-    def encode_molecule(self, input, normalize=True):
+    def encode_molecules(self, input, normalize=True):
         input = torch.from_numpy(input)
 
         with torch.no_grad():
