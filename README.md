@@ -37,6 +37,7 @@ pip install git+https://github.com/ml-jku/cloome
 ```python
 import os
 from cloome.model import CLOOME
+from huggingface_hub import hf_hub_download
 
 # get checkpoint from Hugging Face
 FILENAME = "cloome-bioactivity.pt"
