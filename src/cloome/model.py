@@ -56,7 +56,7 @@ class CLOOME:
         thres = [self._illumination_threshold(i) for i in images]
         images = [self._sixteen_to_eight_bit(i, t) for i, t in zip(images, thres)]
 
-        image = np.stack(images, axis=2)
+        image = np.stack(images, axis=2).astype(np.float32)
         image = self.transform(image)
 
         return image
