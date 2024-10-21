@@ -16,7 +16,7 @@ class CLOOME:
         
 
     
-    def encode_image(self, input, normalize=True):
+    def encode_images(self, input, normalize=True):
         """Encode image given a list of tiff files. The order of the channels should be Mito, ERSyto, ERSytoBleed, Ph_golgi, Hoechst"""
         if isinstance(input[0], str):
             images = self._read_img(input)
