@@ -38,7 +38,11 @@ pip install git+https://github.com/ml-jku/cloome
 import os
 from cloome.model import CLOOME
 
-ckpt = "example/cloome-bioactivity.pt"
+# get checkpoint from Hugging Face
+FILENAME = "cloome-bioactivity.pt"
+REPO_ID = "anasanchezf/cloome"
+ckpt = hf_hub_download(REPO_ID, FILENAME)
+
 config = "src/training/model_configs/RN50.json"
 images = [os.path.join("example", "images", f"{channel}.tif") for channel in ["Mito", "ERSyto", "ERSytoBleed", "Ph_golgi", "Hoechst"]]
 
