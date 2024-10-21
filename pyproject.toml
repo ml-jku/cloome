@@ -23,7 +23,8 @@ dependencies = [
     "torchvision",
     "numpy",
     "Pillow",
-    "huggingface_hub"
+    "huggingface_hub",
+    "timm"
 ]
 
 [project.urls]
